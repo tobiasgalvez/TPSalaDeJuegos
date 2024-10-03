@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+// $colors: (
+//   beigeOne: #aea69c,
+//   beigeTwo: #cbc5bf,
+//   beigeThree: #dedad6,
+//   beigeFour: #f0efed,
+//   blackOne: #232323,
+//   whiteOne: #eeeeee
+// );
+// @function colors($color) {
+//   @return map-get(settings.$colors, $color);
+// }
+
+
+
+
+// Variables para modo oscuro
+$background-dark: #121212;
+$text-color-light: #e0e0e0;
+$input-bg-dark: #2a2a2a;
+$input-border-dark: #3d3d3d;
+$button-bg-dark: #007bff;
+$button-text-light: #fff;
+
+// Estilos globales para toda la aplicación
+body {
+  background-color: $background-dark;  // Fondo oscuro para toda la app
+  color: $text-color-light;  // Texto claro por defecto
+  font-family: 'Courier New', monospace;  // Fuente global (puedes cambiarla)
+
+  // Asegurarse de que todos los márgenes y paddings sean consistentes
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Estilos para inputs y botones globales
+input {
+  background-color: $input-bg-dark;
+  color: $text-color-light;
+  border: 1px solid $input-border-dark;
+  padding: 10px;
+  border-radius: 4px;
+
+  &:focus {
+    outline: none;
+    border-color: $button-bg-dark;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+}
+
+button {
+  font-family: 'Courier New', monospace;
+  background-color: $button-bg-dark;
+  color: $button-text-light;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken($button-bg-dark, 10%);
+  }
+}

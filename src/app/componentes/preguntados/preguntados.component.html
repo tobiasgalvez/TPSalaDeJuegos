@@ -1,0 +1,27 @@
+<div class="preguntados-container">
+    <h1>Preguntados</h1>
+  
+    <div class="bandera">
+      <img *ngIf="paisActual?.flags?.svg" [src]="paisActual.flags.svg" alt="Bandera" />
+    </div>
+  
+    <div class="opciones">
+      <h2>¿De qué país es esta bandera?</h2>
+      <div *ngFor="let opcion of opciones">
+        <button [disabled]="botonesDeshabilitados" (click)="verificarRespuesta(opcion)"> {{ opcion.name.common }} </button>
+      </div>
+    </div>
+  
+    <div class="puntuacion">
+      <p>Puntuación: {{ puntuacion }}</p>
+    </div>
+  
+    <div *ngIf="mensajeResultado" class="mensaje-resultado" [ngClass]="{'correcto': esCorrecto, 'incorrecto': !esCorrecto}">
+      {{ mensajeResultado }}
+    </div>
+
+    <div *ngIf="juegoTerminado" class="mensaje-final">
+        <h2>{{ mensajeFinal }}</h2>
+      </div>
+  </div>
+  

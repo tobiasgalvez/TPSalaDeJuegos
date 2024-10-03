@@ -1,0 +1,56 @@
+.quien-soy-container {
+    max-width: 800px;  // Limita el ancho máximo de la sección
+    margin: 0 auto;    // Centra la sección en la pantalla
+    padding: 20px;
+    background-color: #f5f5f5;  // Color de fondo claro
+    border-radius: 10px;        // Bordes redondeados
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);  // Sombra elegante
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;  // Color de texto oscuro
+  }
+  
+  .datos-personales p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  
+    strong {
+      color: #000;  // Hace los títulos en negrita más oscuros
+    }
+  }
+  
+  .explicacion-juego h3 {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .explicacion-juego p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: flex-start;  // Alinea la imagen a la izquierda
+    margin-top: 20px;
+  
+    img {
+      width: 150px;  // Tamaño de la imagen
+      height: auto;  // Mantiene proporciones
+      border-radius: 10px;  // Bordes redondeados suaves
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);  // Sombra para darle profundidad
+      transition: transform 0.3s ease;
+  
+      &:hover {
+        transform: scale(1.05);  // Efecto de zoom al pasar el mouse
+      }
+    }
+  }
+  

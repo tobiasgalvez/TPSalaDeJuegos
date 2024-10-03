@@ -1,0 +1,16 @@
+<div class="login-container">
+  <form (ngSubmit)="login()">
+    <h2>Iniciar Sesión</h2>
+    
+    <input type="email" [(ngModel)]="email" name="email" placeholder="Correo electrónico" required>
+    <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" required>
+    <button type="submit">Iniciar Sesión</button>
+    
+    <!-- Mensaje de error -->
+    <label *ngIf="showError" style="color: red;">{{ errorMessage }}</label>
+    
+    <!-- Botones de acceso rápido -->
+    <button type="button" class="quick-access-btn" (click)="accesoRapidoLogin('tobi@tobi.com', '42120369')">Acceso rápido 1</button>
+    <button type="button" class="quick-access-btn" (click)="accesoRapidoLogin('tobias@tobias.com', '42120369')">Acceso rápido 2</button>
+  </form>
+</div>

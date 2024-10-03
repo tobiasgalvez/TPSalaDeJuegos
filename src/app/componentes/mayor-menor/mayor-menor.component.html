@@ -1,0 +1,28 @@
+<div class="mayor-menor-container">
+    <h2>Mayor o Menor</h2>
+
+    <div *ngIf="mensajeResultado" [ngClass]="{'mensaje-correcto': esCorrecto, 'mensaje-incorrecto': !esCorrecto}">
+        {{ mensajeResultado }}
+      </div>
+      
+      <!-- El resto del HTML con las cartas y los botones -->
+      
+    <p class="puntaje">Puntaje: {{ puntaje }}</p>
+    
+    <div class="carta-actual">
+      <p>Carta Actual: {{ cartaActual }}</p>
+    </div>
+    
+    
+    <div class="botones-opciones" *ngIf="!finDelJuego">
+      <button class="opcion-btn" (click)="adivinar('mayor')">Mayor</button>
+      <button class="opcion-btn" (click)="adivinar('menor')">Menor</button>
+    </div>
+  
+    <div *ngIf="finDelJuego" class="mensaje-final">
+      ¡Juego terminado! Puntaje final: {{ puntaje }}
+    </div>
+    
+    <button *ngIf="finDelJuego" class="reiniciar-btn" (click)="reiniciarJuego()">Reiniciar Juego</button>
+  </div>
+  

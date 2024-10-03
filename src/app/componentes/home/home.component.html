@@ -1,0 +1,15 @@
+<nav>
+  <button *ngIf="!user" (click)="IrAOtraRuta('login')">Iniciar Sesión</button>
+  <button *ngIf="!user" (click)="IrAOtraRuta('registro')">Registrarse</button>
+
+  <div *ngIf="user">
+    <p>Bienvenido, {{ user.email }}</p>
+    <button (click)="IrAOtraRuta('/sesion-iniciada/ahorcado')">Jugar al Ahorcado</button>
+    <button (click)="IrAOtraRuta('/sesion-iniciada/mayor-menor')">Jugar al Mayor Menor</button>
+    <button (click)="IrAOtraRuta('/sesion-iniciada/chat')">Ir al chat</button>
+    <button (click)="IrAOtraRuta('/sesion-iniciada/preguntados')">Jugar al preguntados</button>
+    <button (click)="CerrarSesion()">Cerrar Sesión</button>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,15 @@
+<div class="login-container">
+    <form (ngSubmit)="Register()">
+        <h2 class="text-center text-primary">Registrar usuario</h2>
+        
+        <input type="email" [(ngModel)]="nuevoMail" name="email" placeholder="Correo electrónico" required>
+        <input type="password" [(ngModel)]="nuevoPassword" name="password" placeholder="Contraseña" required>
+        
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+        </div>
+        
+        <h2 *ngIf="loggedUser" class="text-center text-primary">Usuario registrado: {{loggedUser}}</h2>
+        <p *ngIf="flagError" style="color: red;" class="text-center text-danger">{{msjError}}</p>
+    </form>
+</div>

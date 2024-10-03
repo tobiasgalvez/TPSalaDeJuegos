@@ -1,0 +1,19 @@
+<!-- <div *ngIf="usuarioLogueado; else noAccess"> -->
+  <div class="chat-container">
+    <div class="mensajes">
+      <div *ngFor="let mensaje of mensajes$ | async" class="mensaje">
+        <strong>{{ mensaje.email }}</strong>: {{ mensaje.text }}
+        <span class="hora">{{ mensaje.timestamp | date: 'dd/MM/yyyy HH:mm' }}</span>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <input [(ngModel)]="mensaje" placeholder="Escribe tu mensaje" />
+      <button (click)="enviarMensaje()">Enviar</button>
+    </div>
+  </div>
+<!-- </div> -->
+
+<!-- <ng-template #noAccess>
+  <p>Debes estar logueado para acceder a la sala de chat.</p>
+</ng-template> -->

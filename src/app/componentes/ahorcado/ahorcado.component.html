@@ -1,0 +1,44 @@
+<div class="ahorcado-container">
+  <h2>Ahorcado</h2>
+  <p class="letras-faltantes">{{ letrasFaltantes }}</p>
+  <p class="intentos">Intentos restantes: {{ intentos }}</p>
+
+  <div class="dibujo-ahorcado">
+    <!-- Aquí puedes agregar la imagen o el dibujo del ahorcado -->
+    <img *ngIf="intentos === 6" src="../../../assets/imagenes/ahorcado/ahorcado-0.png" alt="Ahorcado paso 1">
+    <img *ngIf="intentos === 5" src="../../../assets/imagenes/ahorcado/ahorcado-1.png" alt="Ahorcado paso 2">
+    <img *ngIf="intentos === 4" src="../../../assets/imagenes/ahorcado/ahorcado-2.png" alt="Ahorcado paso 3">
+    <img *ngIf="intentos === 3" src="../../../assets/imagenes/ahorcado/ahorcado-3.png" alt="Ahorcado paso 4">
+    <img *ngIf="intentos === 2" src="../../../assets/imagenes/ahorcado/ahorcado-4.png" alt="Ahorcado paso 5">
+    <img *ngIf="intentos === 1" src="../../../assets/imagenes/ahorcado/ahorcado-5.png" alt="Ahorcado paso 6">
+    <img *ngIf="intentos === 0" src="../../../assets/imagenes/ahorcado/ahorcado-6.png" alt="Ahorcado paso final">
+
+  </div>
+ 
+  
+
+  <!-- Botones de letras, solo visibles si el juego no ha terminado -->
+  <div class="botones-letras" *ngIf="intentos > 0 && !hasGanado">
+    <button *ngFor="let letra of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')" 
+            (click)="ingresarLetra(letra)" [disabled]="letrasIngresadas.includes(letra)" 
+            class="letra-btn">
+      {{ letra }}
+    </button>
+  </div>
+
+  <!-- Botón de reiniciar activado al perder o ganar -->
+  <button class="reiniciar-btn" (click)="reiniciarJuego()" [disabled]="intentos > 0 && !hasGanado">
+    Reiniciar
+  </button>
+
+ <!-- Mensaje de Perdedor -->
+ <div *ngIf="intentos === 0" class="mensaje-perdedor">
+  <h1>PERDISTE</h1>
+  <p>La palabra correcta era: {{ palabra }}</p>
+</div>
+
+<!-- Mensaje de Ganador -->
+<div *ngIf="hasGanado" class="mensaje-ganador">
+  <h1>GANASTE</h1>
+  <p>¡Felicidades, has adivinado la palabra correctamente!</p>
+</div>

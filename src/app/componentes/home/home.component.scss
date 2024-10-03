@@ -1,0 +1,19 @@
+*
+{
+    font-family: 'Courier New', monospace;
+}
+
+button {
+    background-color: #007bff; // Color del botón
+    color: white; // Color del texto
+    border: none; // Sin borde
+    padding: 10px 20px; // Espaciado interno
+    border-radius: 5px; // Bordes redondeados
+    cursor: pointer; // Cambiar el cursor al pasar sobre el botón
+    transition: background-color 0.3s; // Transición suave
+  
+    &:hover {
+      background-color: #0056b3; // Color de fondo al pasar el mouse
+    }
+  }
+  

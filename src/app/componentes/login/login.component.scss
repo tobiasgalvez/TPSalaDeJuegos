@@ -1,0 +1,83 @@
+// Variables de color para modo oscuro
+$background-dark: #121212;
+$form-bg-dark: #1e1e1e;
+$input-bg-dark: #2a2a2a;
+$input-border-dark: #3d3d3d;
+$button-bg-dark: #007bff;
+$button-text-dark: #fff;
+$text-color-light: #e0e0e0;
+$error-color-dark: #ff6b6b;
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $background-dark;  // Fondo oscuro
+
+  form {
+    background-color: $form-bg-dark;  // Fondo oscuro para el formulario
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);  // Sombras más sutiles
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  // Alinear todos los elementos en el centro
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: $text-color-light;  // Texto claro
+    }
+
+    input {
+      width: 100%;  // Maximiza el ancho de los inputs al 100%
+      padding: 12px;
+      margin: 10px 0;  // Espaciado entre los inputs
+      border: 1px solid $input-border-dark;
+      border-radius: 4px;
+      background-color: $input-bg-dark;
+      color: $text-color-light;  // Texto claro
+      font-size: 14px;
+
+      &:focus {
+        outline: none;
+        border-color: $button-bg-dark;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+    }
+
+    button {
+      width: 100%;  // Ancho completo para los botones
+      padding: 12px;
+      background-color: $button-bg-dark;
+      border: none;
+      border-radius: 4px;
+      color: $button-text-dark;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 15px;  // Espaciado superior para el botón de iniciar sesión
+
+      &:hover {
+        background-color: darken($button-bg-dark, 10%);
+      }
+    }
+
+    // Estilo para los botones de acceso rápido
+    .quick-access-btn {
+      background-color: $input-bg-dark; // Diferencia los botones de acceso rápido
+      border: 1px solid $input-border-dark;
+      color: $text-color-light;
+      margin-top: 10px;  // Espaciado superior para cada botón
+      padding: 10px;
+
+      &:hover {
+        background-color: darken($input-bg-dark, 5%);
+      }
+    }
+  }
+}

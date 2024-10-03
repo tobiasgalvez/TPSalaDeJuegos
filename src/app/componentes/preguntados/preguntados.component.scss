@@ -1,0 +1,99 @@
+.preguntados-container {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.bandera img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.opciones h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.opciones button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 10px;
+}
+
+.opciones button:hover {
+    background-color: #555;
+}
+
+.puntuacion {
+    font-size: 1.5rem;
+    color: #28a745;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Estilos para mensajes de resultado */
+.mensaje-resultado {
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    transition: all 0.3s ease-in-out; /* Suaviza la transición de cambios de clase */
+}
+
+/* Estilo para mensaje Correcto */
+.mensaje-resultado.correcto {
+    background-color: #d4edda;
+    border: 2px solid #c3e6cb;
+    color: #155724;
+}
+
+/* Estilo para mensaje Incorrecto */
+.mensaje-resultado.incorrecto {
+    background-color: #f8d7da;
+    border: 2px solid #f5c6cb;
+    color: #721c24;
+}
+
+/* Animación para resaltar los mensajes */
+@keyframes resultado-animation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Aplicar la animación a los mensajes de resultado */
+.mensaje-resultado {
+    animation: resultado-animation 1s ease-in-out; /* Aplicación de la animación */
+}
+
+
+/* Estilos para el mensaje final */
+.mensaje-final {
+    font-size: 2rem;
+    color: #333;
+    margin-top: 20px;
+    font-weight: bold;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+}

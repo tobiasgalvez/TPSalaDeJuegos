@@ -1,0 +1,33 @@
+/* Estilos para los botones de navegación */
+nav {
+    display: flex;
+    justify-content: center; /* Centrar los botones */
+    margin: 20px 0;
+  
+    button {
+      background-color: #007bff; /* Color de fondo azul */
+      color: white; /* Color de texto */
+      padding: 10px 20px; /* Espaciado dentro del botón */
+      margin: 0 10px; /* Espaciado entre los botones */
+      border: none; /* Sin bordes */
+      border-radius: 5px; /* Bordes redondeados */
+      cursor: pointer; /* Cursor de mano */
+      font-size: 16px;
+      transition: background-color 0.3s ease; /* Animación suave al hover */
+  
+      &:hover {
+        background-color: darken(#007bff, 10%); /* Color más oscuro al pasar el cursor */
+      }
+      
+      &:focus {
+        outline: none; /* Elimina el borde de enfoque predeterminado */
+      }
+    }
+  }
+  
+  /* Estilos para el botón activo */
+  .active-route {
+    background-color: #0056b3; /* Color diferente para la ruta activa */
+    font-weight: bold; /* Destacar el texto de la ruta activa */
+    border: 2px solid white; /* Un borde que destaque la ruta activa */
+  }
