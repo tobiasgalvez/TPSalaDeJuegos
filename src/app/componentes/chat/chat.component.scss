@@ -1,48 +1,69 @@
 .chat-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #f9f9f9;
-  }
-  
-  .mensajes {
-    max-height: 400px;
-    overflow-y: scroll;
-    padding: 10px;
-    color: #333;
-  }
-  
-  .mensaje {
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .hora {
-    font-size: 0.8em;
-    color: #333;
-    float: right;
-  }
-  
-  .input-container {
-    display: flex;
-    margin-top: 10px;
-  }
-  
-  input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.mensajes {
+  max-height: 400px;
+  overflow-y: auto; /* Permite desplazamiento si hay muchos mensajes */
+  padding: 10px;
+  color: #333;
+}
+
+.mensaje {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 70%; /* Limita el ancho de los mensajes */
+  position: relative; /* Necesario para posicionar la hora correctamente */
+}
+
+.mi-mensaje {
+  background-color: lightblue; /* Color de fondo para los mensajes propios */
+  // align-self: flex-end; /* Alinea los mensajes del usuario a la derecha */
+  text-align: left;
+  margin-left: auto;
+}
+
+.mensaje-otro {
+  background-color: lightgray; /* Color de fondo para mensajes de otros */
+  // align-self: flex-start; /* Alinea los mensajes de otros a la izquierda */
+  text-align: left;
+}
+
+.hora {
+  // font-size: 0.8em;
+  // color: gray;
+  // margin-top: 5px; /* Agrega un margen superior para separarla del texto */
+  // text-align: right; /* Alinea la hora a la derecha */
+  font-size: 0.8em;
+  color: gray;
+  display: block; /* Asegura que la hora esté en una nueva línea */
+  margin-top: 5px; /* Margen superior para separación del texto */
+  text-align: right; /* Alineación a la derecha para tus mensajes */
+}
+
+.input-container {
+  display: flex;
+  margin-top: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

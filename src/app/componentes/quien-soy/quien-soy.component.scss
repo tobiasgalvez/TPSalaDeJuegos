@@ -5,6 +5,7 @@
     background-color: #f5f5f5;  // Color de fondo claro
     border-radius: 10px;        // Bordes redondeados
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);  // Sombra elegante
+    text-align: center;
   }
   
   h1 {
@@ -38,7 +39,7 @@
   
   .image-container {
     display: flex;
-    justify-content: flex-start;  // Alinea la imagen a la izquierda
+    justify-content: center;  // Alinea la imagen a la izquierda
     margin-top: 20px;
   
     img {

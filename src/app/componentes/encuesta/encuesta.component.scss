@@ -1,0 +1,62 @@
+/* encuesta.component.scss */
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrar el formulario en la página */
+    padding: 20px;
+    border: 1px solid #ccc; /* Borde del formulario */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Color de fondo */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  label {
+    margin-bottom: 5px; /* Espacio entre el label y el input */
+    font-weight: bold; /* Negrita en el texto del label */
+    color: #333; /* Color del texto */
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="tel"] {
+    padding: 10px; /* Espacio interno */
+    border: 1px solid #ccc; /* Borde del input */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: border-color 0.3s; /* Transición suave para el borde */
+  
+    &:focus {
+      border-color: #007bff; /* Color del borde al enfocar */
+      outline: none; /* Sin contorno por defecto */
+    }
+  }
+  
+  div {
+    margin-bottom: 15px; /* Espacio entre las preguntas */
+  }
+  
+//   button {
+//     padding: 10px 15px; /* Espacio interno del botón */
+//     background-color: #007bff; /* Color de fondo del botón */
+//     color: #fff; /* Color del texto del botón */
+//     border: none; /* Sin borde */
+//     border-radius: 4px; /* Bordes redondeados */
+//     cursor: pointer; /* Cursor tipo puntero */
+//     transition: background-color 0.3s; /* Transición suave para el color de fondo */
+  
+//     &:hover {
+//       background-color: #0056b3; /* Color de fondo al pasar el mouse */
+//     }
+  
+//     &:disabled {
+//       background-color: #cccccc; /* Color del botón deshabilitado */
+//       cursor: not-allowed; /* Cursor no permitido */
+//     }
+//   }
+  
+  .error-message {
+    color: red; /* Color del texto de error */
+    font-size: 0.9em; /* Tamaño de fuente del mensaje de error */
+  }
+  

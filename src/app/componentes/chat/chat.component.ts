@@ -32,6 +32,7 @@ export class ChatComponent implements OnInit {
     }
 
     this.mensajes$ = this.chatService.obtenerMensajes(); // Asigna el observable a mensajes$
+    console.log('usuario:' + this.userId + ' mail:' + this.userEmail);
   }
 
   enviarMensaje() {
@@ -40,7 +41,7 @@ export class ChatComponent implements OnInit {
         text: this.mensaje,
         userId: this.userId,
         email: this.userEmail, // Incluir el correo electrónico
-        timestamp: new Date().getTime() // Asegúrate de incluir el timestamp
+        timestamp: new Date().getTime() 
       });
       this.mensaje = ''; // Limpiar el campo de entrada
     }

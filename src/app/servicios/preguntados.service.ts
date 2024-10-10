@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PreguntadosService {
 
-  private apiUrl = 'https://restcountries.com/v3.1/all';
+  private apiUrl = 'https://restcountries.com/v3.1/lang/spanish';;
 
   constructor(private http: HttpClient) { }
 

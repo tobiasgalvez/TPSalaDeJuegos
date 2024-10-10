@@ -4,13 +4,17 @@ import { AhorcadoComponent } from '../ahorcado/ahorcado.component';
 import { MayorMenorComponent } from '../mayor-menor/mayor-menor.component';
 import { ChatComponent } from '../chat/chat.component';
 import { PreguntadosComponent } from '../preguntados/preguntados.component';
+import { PasapalabraComponent } from '../pasapalabra/pasapalabra.component';
+import { EncuestaComponent } from '../encuesta/encuesta.component';
 
 
 const routes: Routes = [
   { path: 'ahorcado', component: AhorcadoComponent },
   { path: 'mayor-menor', component: MayorMenorComponent },
   { path: 'chat', component: ChatComponent },
-  { path: 'preguntados', component: PreguntadosComponent}
+  { path: 'preguntados', component: PreguntadosComponent},
+  { path: 'pasapalabra' , component: PasapalabraComponent},
+  { path: 'encuesta', component: EncuestaComponent}
 ];
 
 @NgModule({

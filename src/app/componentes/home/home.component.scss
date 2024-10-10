@@ -1,19 +1,71 @@
-*
-{
-    font-family: 'Courier New', monospace;
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #fff;
+  color: #333;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px; /* Espacio entre los elementos */
+  width: 200px; /* Fijamos un ancho para todas las imágenes */
+}
+
+.game-item img {
+  width: 100%; /* La imagen tomará el 100% del ancho de su contenedor */
+  height: 150px; /* Establecemos una altura fija */
+  object-fit: cover; /* Asegura que la imagen mantenga su proporción y rellene el espacio */
+  margin-bottom: 10px;
+  border-radius: 8px; /* Bordes redondeados, similar a los botones */
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1); /* Aumenta ligeramente la imagen al pasar el mouse */
+  }
 }
 
 button {
-    background-color: #007bff; // Color del botón
-    color: white; // Color del texto
-    border: none; // Sin borde
-    padding: 10px 20px; // Espaciado interno
-    border-radius: 5px; // Bordes redondeados
-    cursor: pointer; // Cambiar el cursor al pasar sobre el botón
-    transition: background-color 0.3s; // Transición suave
+  background-color: #000000;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s;
   
-    &:hover {
-      background-color: #0056b3; // Color de fondo al pasar el mouse
-    }
+  &:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
   }
-  
+
+  &:active {
+    background-color: #003d7a;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .game-item {
+    width: 100%;
+  }
+
+  .game-item img {
+    height: auto; /* Ajusta automáticamente en móviles */
+  }
+}

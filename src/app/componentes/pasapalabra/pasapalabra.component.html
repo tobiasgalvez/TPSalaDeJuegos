@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="rosco-container">
+    <div *ngFor="let pregunta of preguntas; let i = index" 
+         class="letra" 
+         [ngClass]="{
+           'sin-respuesta': pregunta.estado === 'sin_respuesta',
+           'correcto': pregunta.estado === 'correcto',
+           'incorrecto': pregunta.estado === 'incorrecto',
+           'pendiente': pregunta.estado === 'pendiente'
+         }">
+      {{ pregunta.letra }}
+    </div>
+  </div>
+
+  <div class="pregunta">
+    <h2>Letra: {{ preguntas[letraActual].letra }}</h2>
+    <p>{{ preguntas[letraActual].definicion }}</p>
+    <input [(ngModel)]="respuesta" placeholder="Tu respuesta">
+    <button (click)="verificar()">Enviar</button>
+    <button (click)="pasarPregunta()">Pasapalabra</button>
+    
+    <!-- Mensaje de advertencia -->
+    <div *ngIf="mensajeError" class="mensaje-advertencia">{{ mensajeError }}</div>
+  </div>
+
+  <div class="temporizador">
+    <h3>Tiempo Restante: {{ tiempoRestante }} segundos</h3>
+    <div class="rectangulo" [style.width.%]="(tiempoRestante / 90) * 100" ></div>
+  </div>
+
+  <div class="puntuacion">
+    <p>Puntuación: {{ puntos }}</p>
+  </div>
+
+  <div class="boton-reiniciar">
+    <button (click)="reiniciarJuego()">Reiniciar Juego</button>
+  </div>
+
+</div>

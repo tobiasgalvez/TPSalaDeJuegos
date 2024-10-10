@@ -1,4 +1,4 @@
-<nav>
+<!-- <nav>
   <button *ngIf="!user" (click)="IrAOtraRuta('login')">Iniciar Sesión</button>
   <button *ngIf="!user" (click)="IrAOtraRuta('registro')">Registrarse</button>
 
@@ -8,8 +8,68 @@
     <button (click)="IrAOtraRuta('/sesion-iniciada/mayor-menor')">Jugar al Mayor Menor</button>
     <button (click)="IrAOtraRuta('/sesion-iniciada/chat')">Ir al chat</button>
     <button (click)="IrAOtraRuta('/sesion-iniciada/preguntados')">Jugar al preguntados</button>
+    <button (click)="IrAOtraRuta('/sesion-iniciada/pasapalabra')">Jugar al pasapalabra</button>
     <button (click)="CerrarSesion()">Cerrar Sesión</button>
   </div>
 </nav>
 
+<router-outlet></router-outlet> -->
+
+<!-- <nav>
+  <button *ngIf="!user" (click)="IrAOtraRuta('login')">Iniciar Sesión</button>
+  <button *ngIf="!user" (click)="IrAOtraRuta('registro')">Registrarse</button>
+
+  <div *ngIf="user" class="user-menu">
+    <p>Bienvenido, {{ user.email }}</p>
+    <div class="card">
+      <button (click)="IrAOtraRuta('/sesion-iniciada/ahorcado')">Jugar al Ahorcado</button>
+      <button (click)="IrAOtraRuta('/sesion-iniciada/mayor-menor')">Jugar al Mayor Menor</button>
+      <button (click)="IrAOtraRuta('/sesion-iniciada/preguntados')">Jugar al Preguntados</button>
+      <button (click)="IrAOtraRuta('/sesion-iniciada/pasapalabra')">Jugar al Pasapalabra</button>
+      <button (click)="IrAOtraRuta('/sesion-iniciada/chat')">Ir al chat</button>
+    </div>
+    
+    <button (click)="CerrarSesion()">Cerrar Sesión</button>
+  </div>
+</nav>
+
+<router-outlet></router-outlet> -->
+
+
+<nav>
+  <button *ngIf="!user" (click)="IrAOtraRuta('login')">Iniciar Sesión</button>
+  <button *ngIf="!user" (click)="IrAOtraRuta('registro')">Registrarse</button>
+
+  <div *ngIf="user" class="user-menu">
+    <p>Bienvenido, {{ user.email }}</p>
+    <div class="card">
+      <div class="game-item">
+        <img src="assets/imagenes/imagenes-juegos/juego-ahorcado.jpg" alt="Ahorcado">
+        <button (click)="IrAOtraRuta('/sesion-iniciada/ahorcado')">Jugar al Ahorcado</button>
+      </div>
+      <div class="game-item">
+        <img src="assets/imagenes/imagenes-juegos/cartas.jpeg" alt="Mayor Menor">
+        <button (click)="IrAOtraRuta('/sesion-iniciada/mayor-menor')">Jugar al Mayor Menor</button>
+      </div>
+      <div class="game-item">
+        <img src="assets/imagenes/imagenes-juegos/banderassss.jpeg" alt="Preguntados">
+        <button (click)="IrAOtraRuta('/sesion-iniciada/preguntados')">Jugar al Preguntados</button>
+      </div>
+      <div class="game-item">
+        <img src="assets/imagenes/imagenes-juegos/pasapalabra.jpeg" alt="Pasapalabra">
+        <button (click)="IrAOtraRuta('/sesion-iniciada/pasapalabra')">Jugar al Pasapalabra</button>
+      </div>
+      <div class="game-item">
+        <img src="assets/imagenes/imagenes-juegos/chat.png" alt="Chat">
+        <button (click)="IrAOtraRuta('/sesion-iniciada/chat')">Ir al chat</button>
+      </div>
+    </div>
+
+    <button (click)="CerrarSesion()">Cerrar Sesión</button>
+    <button (click)="IrAOtraRuta('/sesion-iniciada/encuesta')">Encuesta</button>
+  </div>
+</nav>
+
 <router-outlet></router-outlet>
+
+

@@ -1,0 +1,53 @@
+<form [formGroup]="encuestaForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Nombre:</label>
+      <input formControlName="nombre" />
+      <div *ngIf="esCampoInvalido('nombre')" class="error-message">Este campo es obligatorio.</div>
+    </div>
+  
+    <div>
+      <label>Apellido:</label>
+      <input formControlName="apellido" />
+      <div *ngIf="esCampoInvalido('apellido')" class="error-message">Este campo es obligatorio.</div>
+    </div>
+  
+    <div>
+      <label>Edad:</label>
+      <input type="number" formControlName="edad" />
+      <div *ngIf="esCampoInvalido('edad')" class="error-message">
+        <div *ngIf="encuestaForm.get('edad')?.errors?.['required']">Este campo es obligatorio.</div>
+        <div *ngIf="encuestaForm.get('edad')?.errors?.['min']">Debes ser mayor de 18 años.</div>
+        <div *ngIf="encuestaForm.get('edad')?.errors?.['max']">Debes ser menor de 99 años.</div>
+      </div>
+    </div>
+  
+    <div>
+      <label>Número de teléfono:</label>
+      <input formControlName="telefono" />
+      <div *ngIf="esCampoInvalido('telefono')" class="error-message">
+        <div *ngIf="encuestaForm.get('telefono')?.errors?.['required']">Este campo es obligatorio.</div>
+        <div *ngIf="encuestaForm.get('telefono')?.errors?.['pattern']">Debes ingresar un número de teléfono válido (10 dígitos).</div>
+      </div>
+    </div>
+  
+    <div>
+      <label>Qué te parecieron los juegos?:</label>
+      <input type="text" formControlName="pregunta1" />
+      <div *ngIf="esCampoInvalido('pregunta1')" class="error-message">Este campo es obligatorio.</div>
+    </div>
+  
+    <div>
+      <label>Cómo calificarías del 1 al 10 la página?:</label>
+      <input type="text" formControlName="pregunta2" />
+      <div *ngIf="esCampoInvalido('pregunta2')" class="error-message">Este campo es obligatorio.</div>
+    </div>
+  
+    <div>
+      <label>Posibles cosas a mejorar:</label>
+      <input type="text" formControlName="pregunta3" />
+      <div *ngIf="esCampoInvalido('pregunta3')" class="error-message">Este campo es obligatorio.</div>
+    </div>
+  
+    <button type="submit" [disabled]="encuestaForm.invalid">Enviar Encuesta</button>
+  </form>
+  

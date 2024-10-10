@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { PreguntadosService } from '../../servicios/preguntados.service';
 import { CommonModule } from '@angular/common';
+import { Auth } from '@angular/fire/auth'; // Importa Auth para obtener el usuario actual
+import { Firestore, collection, addDoc } from '@angular/fire/firestore'; // Importa Firestore para guardar resultados
+import { User } from 'firebase/auth'; // Importa User para definir el tipo del usuario
 
 @Component({
   selector: 'app-preguntados',
@@ -22,10 +25,15 @@ export class PreguntadosComponent implements OnInit {
   juegoTerminado: boolean = false; 
   mensajeFinal: string = ''; 
   botonesDeshabilitados: boolean = false; 
+  user: User | null = null; // Para guardar el usuario logueado
 
-  constructor(private preguntadosService: PreguntadosService) {}
+  constructor(private preguntadosService: PreguntadosService, private auth: Auth, private firestore: Firestore) {}
 
   ngOnInit(): void {
+    this.auth.onAuthStateChanged((user) => {
+      this.user = user; // Guardar el usuario actual
+    });
+
     this.preguntadosService.obtenerPaises().subscribe(data => {
       this.paises = data;
       this.nuevaPregunta();
@@ -41,6 +49,7 @@ export class PreguntadosComponent implements OnInit {
     if (this.preguntasRespondidas >= this.maxPreguntas) {
       this.juegoTerminado = true;
       this.mensajeFinal = `Juego terminado. Tu puntuación final es ${this.puntuacion} de ${this.maxPreguntas}.`;
+      this.guardarResultado(); // Guarda el resultado final al terminar el juego
     } else {
       // Si no, se continúa con la siguiente pregunta
       this.paisActual = this.obtenerPaisesRandom();
@@ -48,7 +57,6 @@ export class PreguntadosComponent implements OnInit {
       this.botonesDeshabilitados = false; // Habilitar botones al generar una nueva pregunta
     }
   }
-  
 
   obtenerPaisesRandom(): any {
     const indiceRandom = Math.floor(Math.random() * this.paises.length);
@@ -67,7 +75,6 @@ export class PreguntadosComponent implements OnInit {
   }
   
   mezclarOpciones(opciones: any[]): any[] {
-    
     for (let i = opciones.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [opciones[i], opciones[j]] = [opciones[j], opciones[i]]; // Intercambio
@@ -75,22 +82,34 @@ export class PreguntadosComponent implements OnInit {
     return opciones;
   }
 
-
   verificarRespuesta(paisSeleccionado: any): void {
     this.botonesDeshabilitados = true;
+  
+    // Verifica si el país seleccionado es el correcto utilizando `cca2`
     if (paisSeleccionado.cca2 === this.paisActual.cca2) {
       this.puntuacion++;
-      this.mensajeResultado = 'Correcto!'; 
+      this.mensajeResultado = `Correcto! El país era ${this.paisActual.name.common}`; 
       this.esCorrecto = true; 
     } else {
-      this.mensajeResultado = 'Incorrecto!'; 
+      this.mensajeResultado = `Incorrecto! El país correcto era ${this.paisActual.name.common}`;
       this.esCorrecto = false; 
     }
   
-    // Esperar unos segundos antes de mostrar la siguiente pregunta
     setTimeout(() => {
-      this.preguntasRespondidas++; // Incrementa el contador de preguntas
+      this.preguntasRespondidas++; 
       this.nuevaPregunta();
-    }, 2000); // 2 segundos de espera para que el usuario vea el resultado
+    }, 2000);
+  }
+
+  async guardarResultado() {
+    if (this.user) {
+      const resultadosRef = collection(this.firestore, 'resultados_preguntados');
+      await addDoc(resultadosRef, {
+        usuario: this.user.email,
+        fecha: new Date(),
+        puntuacion: this.puntuacion,
+        //preguntasRespondidas: this.preguntasRespondidas,
+      });
+    }
   }
 }

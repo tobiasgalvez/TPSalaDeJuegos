@@ -1,17 +1,23 @@
 <!-- <div *ngIf="usuarioLogueado; else noAccess"> -->
   <div class="chat-container">
     <div class="mensajes">
-      <div *ngFor="let mensaje of mensajes$ | async" class="mensaje">
-        <strong>{{ mensaje.email }}</strong>: {{ mensaje.text }}
+      <div *ngFor="let mensaje of mensajes$ | async" 
+           class="mensaje"
+           [ngClass]="{'mi-mensaje': mensaje.userId === userId, 'mensaje-otro': mensaje.userId !== userId}">
+        <span *ngIf="mensaje.userId !== userId"><strong>{{ mensaje.email }}</strong>: </span>
+        {{ mensaje.text }}
         <span class="hora">{{ mensaje.timestamp | date: 'dd/MM/yyyy HH:mm' }}</span>
       </div>
     </div>
-
+  
     <div class="input-container">
-      <input [(ngModel)]="mensaje" placeholder="Escribe tu mensaje" />
+      <input [(ngModel)]="mensaje" 
+             (keydown.enter)="enviarMensaje()" 
+             placeholder="Escribe tu mensaje" />
       <button (click)="enviarMensaje()">Enviar</button>
     </div>
   </div>
+  
 <!-- </div> -->
 
 <!-- <ng-template #noAccess>
