@@ -8,12 +8,12 @@
     <div class="opciones">
       <h2>¿De qué país es esta bandera?</h2>
       <div *ngFor="let opcion of opciones">
-        <button [disabled]="botonesDeshabilitados" (click)="verificarRespuesta(opcion)"> {{ opcion.name.common }} </button>
+        <button [disabled]="botonesDeshabilitados" (click)="verificarRespuesta(opcion)"> {{ opcion.translations.spa.common }} </button>
       </div>
     </div>
   
     <div class="puntuacion">
-      <p>Puntuación: {{ puntuacion }} / {{maxPreguntas}}</p>
+      <p>Puntuación: {{ puntaje }} / {{maxPreguntas}}</p>
     </div>
   
     <div *ngIf="mensajeResultado" class="mensaje-resultado" [ngClass]="{'correcto': esCorrecto, 'incorrecto': !esCorrecto}">

@@ -1,0 +1,21 @@
+<div>
+  <h2>Resultados de los Juegos</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Juego</th>
+        <th>Usuario</th>
+        <th>Puntaje</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let resultado of resultados">
+        <td>{{ resultado.juego }}</td> <!-- Juego añadido dinámicamente -->
+        <td>{{ resultado.usuario }}</td>
+        <td>{{ resultado.puntaje }}</td>
+        <td>{{ resultado.fecha | date:'short' }}</td> <!-- Conversión directa -->
+      </tr>
+    </tbody>
+  </table>
+</div>

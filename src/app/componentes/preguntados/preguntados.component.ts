@@ -17,7 +17,7 @@ export class PreguntadosComponent implements OnInit {
   paises: any[] = [];
   paisActual: any;
   opciones: any[] = [];
-  puntuacion: number = 0;
+  puntaje: number = 0;
   mensajeResultado: string = '';
   esCorrecto: boolean = false;
   preguntasRespondidas: number = 0; // Contador de preguntas
@@ -48,7 +48,7 @@ export class PreguntadosComponent implements OnInit {
     // Si el número de preguntas respondidas alcanza el máximo, se termina el juego
     if (this.preguntasRespondidas >= this.maxPreguntas) {
       this.juegoTerminado = true;
-      this.mensajeFinal = `Juego terminado. Tu puntuación final es ${this.puntuacion} de ${this.maxPreguntas}.`;
+      this.mensajeFinal = `Juego terminado. Tu puntuación final es ${this.puntaje} de ${this.maxPreguntas}.`;
       this.guardarResultado(); // Guarda el resultado final al terminar el juego
     } else {
       // Si no, se continúa con la siguiente pregunta
@@ -87,11 +87,11 @@ export class PreguntadosComponent implements OnInit {
   
     // Verifica si el país seleccionado es el correcto utilizando `cca2`
     if (paisSeleccionado.cca2 === this.paisActual.cca2) {
-      this.puntuacion++;
-      this.mensajeResultado = `Correcto! El país era ${this.paisActual.name.common}`; 
+      this.puntaje++;
+      this.mensajeResultado = `Correcto! El país era ${this.paisActual.translations.spa.common}`; 
       this.esCorrecto = true; 
     } else {
-      this.mensajeResultado = `Incorrecto! El país correcto era ${this.paisActual.name.common}`;
+      this.mensajeResultado = `Incorrecto! El país correcto era ${this.paisActual.translations.spa.common}`;
       this.esCorrecto = false; 
     }
   
@@ -107,7 +107,7 @@ export class PreguntadosComponent implements OnInit {
       await addDoc(resultadosRef, {
         usuario: this.user.email,
         fecha: new Date(),
-        puntuacion: this.puntuacion,
+        puntaje: this.puntaje,
         //preguntasRespondidas: this.preguntasRespondidas,
       });
     }

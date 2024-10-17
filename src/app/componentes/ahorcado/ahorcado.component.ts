@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common'; // para las directivas ng
 import { Component, OnInit } from '@angular/core';
-import { Firestore, collection, addDoc  } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { Auth, User } from '@angular/fire/auth';
 
 @Component({
@@ -11,12 +11,13 @@ import { Auth, User } from '@angular/fire/auth';
   styleUrls: ['./ahorcado.component.scss']
 })
 export class AhorcadoComponent implements OnInit {
-  palabrasPosibles : Array<string> = ["TOBIAS", "JUAN", "FEDERICO", "NICOLAS", "MATIAS", "EZEQUIEL", "PATRICIO", "JOSE"];
+  palabrasPosibles: Array<string> = ["TOBIAS", "JUAN", "FEDERICO", "NICOLAS", "MATIAS", "EZEQUIEL", "PATRICIO", "JOSE"];
   palabra: string = this.palabrasPosibles[Math.floor(Math.random() * this.palabrasPosibles.length)];
   letrasIngresadas: string[] = [];
   intentos: number = 6;
   maxIntentos: number = 6;
   hasGanado: boolean = false;
+  puntaje: number = 0; // Nueva variable para el puntaje
   user: User | null = null; // Para guardar el usuario logueado
   
   constructor(private auth: Auth, private firestore: Firestore) {}
@@ -34,9 +35,14 @@ export class AhorcadoComponent implements OnInit {
   ingresarLetra(letra: string) {
     if (!this.letrasIngresadas.includes(letra)) {
       this.letrasIngresadas.push(letra);
-      if (!this.palabra.includes(letra)) {
+
+      // Si la letra es correcta, sumamos 10 puntos
+      if (this.palabra.includes(letra)) {
+        this.puntaje += 10;
+      } else {
         this.intentos--;
       }
+
       this.verificarGanador();
     }
   }
@@ -44,6 +50,8 @@ export class AhorcadoComponent implements OnInit {
   verificarGanador() {
     if (!this.letrasFaltantes.includes('_')) {
       this.hasGanado = true;
+      // Si ha ganado, sumamos 100 puntos adicionales
+      this.puntaje += 100;
       this.guardarResultado(); // Guardar el resultado cuando gane
     } else if (this.intentos === 0) {
       this.guardarResultado(); // Guardar resultado cuando pierda
@@ -54,6 +62,7 @@ export class AhorcadoComponent implements OnInit {
     this.letrasIngresadas = [];
     this.intentos = 6;
     this.hasGanado = false;
+    this.puntaje = 0; // Reiniciar el puntaje al iniciar un nuevo juego
     this.palabra = this.palabrasPosibles[Math.floor(Math.random() * this.palabrasPosibles.length)];
   }
 
@@ -64,8 +73,8 @@ export class AhorcadoComponent implements OnInit {
         usuario: this.user.email,
         fecha: new Date(),
         palabra: this.palabra,
-        //intentosRestantes: this.intentos,
-        estado: this.hasGanado ? 'Ganado' : 'Perdido'
+        estado: this.hasGanado ? 'Ganado' : 'Perdido',
+        puntaje: this.puntaje // Guardar el puntaje en Firestore
       });
     }
   }

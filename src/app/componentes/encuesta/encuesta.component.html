@@ -30,24 +30,46 @@
       </div>
     </div>
   
-    <div>
-      <label>Qué te parecieron los juegos?:</label>
-      <input type="text" formControlName="pregunta1" />
-      <div *ngIf="esCampoInvalido('pregunta1')" class="error-message">Este campo es obligatorio.</div>
-    </div>
+   
+
+<div>
+  <label>¿Cuál es tu juego favorito de la página?</label>
+  <div>
+    <label><input type="radio" formControlName="pregunta1" value="ahorcado" /> Ahorcado</label>
+    <label><input type="radio" formControlName="pregunta1" value="mayorMenor" /> Mayor o Menor</label>
+    <label><input type="radio" formControlName="pregunta1" value="preguntados" /> Preguntados</label>
+    <label><input type="radio" formControlName="pregunta1" value="pasapalabra" /> Pasapalabra</label>
+  </div>
+  <div *ngIf="esCampoInvalido('pregunta1')" class="error-message">Este campo es obligatorio.</div>
+</div>
+
+<div formGroupName="pregunta2">
+  <label>¿Qué mejoras te gustaría ver en el futuro?</label>
+  <div>
+    <label><input type="checkbox" formControlName="masJuegos" /> Más juegos</label>
+    <label><input type="checkbox" formControlName="mejorDiseño" /> Mejor diseño</label>
+    <label><input type="checkbox" formControlName="mayorDificultad" /> Mayor dificultad</label>
+  </div>
+</div>
   
     <div>
-      <label>Cómo calificarías del 1 al 10 la página?:</label>
-      <input type="text" formControlName="pregunta2" />
-      <div *ngIf="esCampoInvalido('pregunta2')" class="error-message">Este campo es obligatorio.</div>
-    </div>
-  
-    <div>
-      <label>Posibles cosas a mejorar:</label>
-      <input type="text" formControlName="pregunta3" />
+      <label>Comentario adicional</label>
+      <input formControlName="pregunta3" />
       <div *ngIf="esCampoInvalido('pregunta3')" class="error-message">Este campo es obligatorio.</div>
     </div>
   
-    <button type="submit" [disabled]="encuestaForm.invalid">Enviar Encuesta</button>
-  </form>
+   <!-- Mensaje de éxito -->
+   <div *ngIf="encuestaEnviada" class="success-message">
+    Encuesta enviada exitosamente.
+  </div>
+
+  <!-- Mensaje de error -->
+  <div *ngIf="mostrarError" class="error-message">
+    Por favor, completa todos los campos obligatorios antes de enviar.
+  </div>
+
+  <!-- Resto del formulario -->
+  <button type="submit" >Enviar Encuesta</button>
+</form>
+ 
   

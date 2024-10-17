@@ -12,7 +12,7 @@ form {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
   }
   
-  label {
+  label{
     margin-bottom: 5px; /* Espacio entre el label y el input */
     font-weight: bold; /* Negrita en el texto del label */
     color: #333; /* Color del texto */
@@ -58,5 +58,11 @@ form {
   .error-message {
     color: red; /* Color del texto de error */
     font-size: 0.9em; /* Tamaño de fuente del mensaje de error */
+  }
+
+  .success-message {
+    color: green;
+    font-size: 1.1em;
+    margin-bottom: 15px;
   }
   

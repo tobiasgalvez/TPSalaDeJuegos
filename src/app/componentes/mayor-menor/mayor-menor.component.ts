@@ -103,7 +103,7 @@ export class MayorMenorComponent implements OnInit {
       await addDoc(resultadosRef, {
         usuario: this.user.email,
         fecha: new Date(),
-        puntuacion: this.puntaje,
+        puntaje: this.puntaje,
         //maxPreguntas: this.maxRondas,
       });
     }

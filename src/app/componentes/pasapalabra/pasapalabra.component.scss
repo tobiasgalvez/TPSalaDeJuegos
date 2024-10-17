@@ -65,18 +65,19 @@ input {
 
 
 .temporizador {
-    text-align: center;
-    margin-top: 20px;
-  
-    .rectangulo {
-        background-color: rgb(6, 6, 6);
-        height: 20px;
-        width: 80%; /* Cambia según sea necesario */
-        margin: 0 auto; /* Centra el rectángulo */
-        transition: width 1s ease;
-        border-radius: 0; /* Sin bordes redondeados */
-      }
+  text-align: center;
+  margin-top: 20px;
+
+  .rectangulo {
+    background-color: rgb(6, 6, 6);
+    height: 20px;
+    width: 100%; /* Cambiado a 100% para que ocupe todo el ancho disponible dentro del contenedor */
+    max-width: 600px; /* Añadido un valor máximo para controlar el desbordamiento */
+    margin: 0 auto; /* Centra el rectángulo */
+    transition: width 1s ease;
+    border-radius: 0;
   }
+}
 
   
   h2, h3, p {
@@ -122,3 +123,23 @@ input {
       }
     }
   }
+
+
+  // Estilo personalizado para el popup
+.popup-clase-personalizada {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  color: #333;
+}
+
+.popup-clase-personalizada .swal2-title {
+  font-size: 2rem;
+  color: #28a745;
+}
+
+.popup-clase-personalizada .swal2-confirm {
+  background-color: #000;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+}

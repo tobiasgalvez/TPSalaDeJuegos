@@ -6,6 +6,7 @@ import { ChatComponent } from '../chat/chat.component';
 import { PreguntadosComponent } from '../preguntados/preguntados.component';
 import { PasapalabraComponent } from '../pasapalabra/pasapalabra.component';
 import { EncuestaComponent } from '../encuesta/encuesta.component';
+import { ResultadosComponent } from '../resultados/resultados.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'chat', component: ChatComponent },
   { path: 'preguntados', component: PreguntadosComponent},
   { path: 'pasapalabra' , component: PasapalabraComponent},
-  { path: 'encuesta', component: EncuestaComponent}
+  { path: 'encuesta', component: EncuestaComponent},
+  {path: 'resultados', component: ResultadosComponent}
 ];
 
 @NgModule({
