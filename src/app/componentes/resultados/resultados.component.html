@@ -1,6 +1,15 @@
-<div>
-  <h2>Resultados de los Juegos</h2>
-  <table class="table table-striped">
+<div class="resultados-container">
+  <div>
+    <label for="juegoFiltro">Filtrar por juego:</label>
+    <select id="juegoFiltro" [(ngModel)]="juegoSeleccionado" (change)="filtrarResultados()">
+      <option value="todos">Todos</option>
+      <option value="Ahorcado">Ahorcado</option>
+      <option value="Mayor-Menor">Mayor-Menor</option>
+      <option value="Preguntados">Preguntados</option>
+      <option value="Pasapalabra">Pasapalabra</option>
+    </select>
+  </div>
+  <table class="resultados-table table table-striped">
     <thead>
       <tr>
         <th>Juego</th>
@@ -10,11 +19,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let resultado of resultados">
-        <td>{{ resultado.juego }}</td> <!-- Juego añadido dinámicamente -->
+      <tr *ngFor="let resultado of resultadosFiltrados">
+        <td>{{ resultado.juego }}</td>
         <td>{{ resultado.usuario }}</td>
         <td>{{ resultado.puntaje }}</td>
-        <td>{{ resultado.fecha | date:'short' }}</td> <!-- Conversión directa -->
+        <td>{{ resultado.fecha | date: 'dd/MM/yy hh:mm a' }}</td>
       </tr>
     </tbody>
   </table>

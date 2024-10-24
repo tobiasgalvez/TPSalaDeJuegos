@@ -1,45 +1,46 @@
 .resultados-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
+  width: 70%; /* Ajusta el ancho */
+  margin: 20px auto; /* Centra el contenedor y ajusta el espacio superior/inferior */
+  background-color: white;
+  border: 2px solid black;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+
+
+  .resultados-table {
+    width: 100%;               /* Ajusta el ancho de la tabla */
+    max-width: 900px;          /* Tamaño máximo de la tabla */
+    background-color: white;   /* Fondo blanco */
+    border-collapse: collapse; /* Elimina espacios entre bordes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
     text-align: center;
-    margin-bottom: 20px;
+
+    th, td {
+      padding: 12px 15px;        /* Añade espacio dentro de las celdas */
+      text-align: left;          /* Alineación del texto */
+      border: 1px solid #ddd;    /* Bordes entre las columnas */
+      color: black;              /* Color de texto negro */
+    }
+
+    th {
+      background-color: #f7f7f7; /* Color de fondo para el encabezado */
+      font-weight: bold;         /* Texto en negrita */
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9; /* Colores alternados en las filas */
+    }
   }
-  
-  label {
-    font-weight: bold;
-    margin-right: 10px;
+
+  h2 {
+    text-align: center;        /* Centra el título */
+    color: black;              /* Color del texto negro */
+    font-family: 'Arial', sans-serif; /* Fuente de la letra */
   }
-  
-  select {
-    padding: 5px;
-    margin-bottom: 20px;
-    font-size: 1rem;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    background-color: #fff;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  strong {
-    color: #333;
-  }
+}
+
+label{
+  color: black;
+}
